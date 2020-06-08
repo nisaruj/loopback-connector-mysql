@@ -323,7 +323,7 @@ export class User extends Entity {
 
 </details>
 
-### Digital Types
+### Numeric Types
 
 Except the names, you can also use the dataType column/property attribute to
 specify what MySQL column type to use. The following MySQL type-dataType
@@ -547,7 +547,7 @@ Moreover, additional MySQL-specific properties mentioned in the
 [Data mapping properties](#data-mapping-properties) section work with
 auto-migration as well.
 
-#### auto-generated ids
+#### Auto-generated ids
 
 For now LoopBack MySQL connector only supports auto-generated id
 (`generated: true`) for integer type as for MySQL, the default id type is
@@ -568,13 +568,14 @@ type, you can:
 ```
 
 - Alter the table in your database to use a certain function if you prefer
-  having the database to generate the value.
+  having **the database to generate the value**.
 
 ```ts
   @property({
     id: true,
     type: 'string'
-    // generated: true,  -> not needed
+    generated: true,  // to indicate the value generates by the db
+    useDefaultIdType: false,  // needed
   })
   id: string;
 ```
@@ -588,7 +589,7 @@ exist before creating a foreign key constraint.
 
 Define your models and the foreign key constraints as follows:
 
-`customer.model.ts`:
+{% include code-caption.html content="customer.model.ts" %}
 
 ```ts
 @model()
