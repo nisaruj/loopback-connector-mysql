@@ -264,7 +264,7 @@ configure the table/column definition.
 
 For example, the following settings would allow you to have custom table name
 (`Custom_User`) and column name (`custom_id` and `custom_name`). Such mapping is
-useful when you'd like to have different names from the model:
+useful when you'd like to have different table/column names from the model:
 
 {% include code-caption.html content="user.model.ts" %}
 
@@ -336,7 +336,7 @@ combinations are supported:
 - mediumint
 - int
 - bigint
-- flaot
+- float
 - double
 - decimal
 
